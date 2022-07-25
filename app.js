@@ -86,11 +86,11 @@ const poopulateRow = async (row) => {
         //flap
         for (let j = 1; j <= Object.values(flapsInColumn)[i - 1] && j <= Object.values(flights[row - 1])[i - 1].length; j++) {
             const flap = document.getElementById(`row${row}column${i}flap${j}`)
-            
+
             setTimeout(() => {
                 flap.innerHTML = Object.values(flights[row - 1])[i - 1][j - 1].toUpperCase()
                 flap.setAttribute('class', 'flap flap--rotate')
-              }, INTERVALS.FLAP_INTERVAL*j);
+            }, INTERVALS.FLAP_INTERVAL * j);
         }
     }
 }
@@ -101,132 +101,20 @@ const populateDepartures = async () => {
 
     try {
         /*-----------Select API or static data-----------*/
-                /*------Get data from API------*/
+        /*------Get data from API------*/
         //let data = await getData()
-                /*-------Get static data-------*/
+        /*-------Get static data-------*/
         let data = {
-        /*-----------------------------------------------*/
-            "departures":
-                [{
-                    "movement":
-                    {
-                        "airport": {
-                            "icao": "LMML", "iata": "MLA", "name": "Luqa"
-                        },
-                        "scheduledTimeLocal": "2022-07-24 22:14+02:00",
-                        "actualTimeLocal": "2022-07-24 22:14+02:00",
-                        "runwayTimeLocal": "2022-07-24 22:14+02:00",
-                        "scheduledTimeUtc": "2022-07-24 20:14Z",
-                        "actualTimeUtc": "2022-07-24 20:14Z",
-                        "runwayTimeUtc": "2022-07-24 20:14Z",
-                        "quality": ["Basic", "Live"]
-                    },
-                    "number": "FR 181F",
-                    "callSign": "RYR181F",
-                    "status": "Departed",
-                    "codeshareStatus": "IsOperator",
-                    "isCargo": false,
-                    "aircraft": {
-                        "reg": "9H-QDD",
-                        "modeS": "4D225C"
-                        , "model": "Boeing 737-800"
-                    },
-                    "airline": {
-                        "name": "Ryanair"
-                    }
-                },
-                {
-                    "movement": {
-                        "airport": {
-                            "icao": "EDDF",
-                            "iata": "FRA",
-                            "name": "Frankfurt-am-Main"
-                        },
-                        "scheduledTimeLocal": "2022-07-25 06:40+02:00",
-                        "scheduledTimeUtc": "2022-07-25 04:40Z",
-                        "quality": ["Basic"]
-                    },
-                    "number": "LH 1375",
-                    "status": "Unknown",
-                    "codeshareStatus": "IsOperator",
-                    "isCargo": false,
-                    "aircraft": {
-                        "reg": "D-ACNJ",
-                        "modeS": "3C4DCA",
-                        "model": "Bombardier CRJ900"
-                    },
-                    "airline": {
-                        "name": "Lufthansa"
-                    }
-                },
-                {
-                    "movement": {
-                        "airport": {
-                            "icao": "EINN",
-                            "iata": "SNN",
-                            "name": "Limerick city"
-                        },
-                        "scheduledTimeLocal": "2022-07-25 07:15+02:00",
-                        "scheduledTimeUtc": "2022-07-25 05:15Z",
-                        "quality": ["Basic"]
-                    }, "number": "FR 1173",
-                    "status": "Unknown",
-                    "codeshareStatus": "IsOperator",
-                    "isCargo": false,
-                    "aircraft": {
-                        "model": "Boeing 737-800"
-                    },
-                    "airline": {
-                        "name": "Ryanair"
-                    }
-                },
-                {
-                    "movement": {
-                        "airport": {
-                            "icao": "ENTO",
-                            "iata": "TRF",
-                            "name": "Torp"
-                        },
-                        "scheduledTimeLocal": "2022-07-25 06:10+02:00",
-                        "scheduledTimeUtc": "2022-07-25 04:10Z",
-                        "quality": ["Basic"]
-                    }, "number": "W6 1879",
-                    "status": "Unknown",
-                    "codeshareStatus": "IsOperator",
-                    "isCargo": false,
-                    "aircraft": {
-                        "model": "Airbus A320"
-                    },
-                    "airline": {
-                        "name": "Wizz Air"
-                    }
-                },
-                {
-                    "movement": {
-                        "airport": {
-                            "icao": "EPGD",
-                            "iata": "GDN",
-                            "name": "Gdańsk"
-                        },
-                        "scheduledTimeLocal": "2022-07-24 20:40+02:00",
-                        "actualTimeLocal": "2022-07-24 22:22+02:00",
-                        "runwayTimeLocal": "2022-07-24 22:22+02:00",
-                        "scheduledTimeUtc": "2022-07-24 18:40Z",
-                        "actualTimeUtc": "2022-07-24 20:22Z",
-                        "runwayTimeUtc": "2022-07-24 20:22Z",
-                        "quality": ["Basic", "Live"]
-                    },
-                    "number": "FR 4105",
-                    "callSign": "RYR69PH", "status": "Departed", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "reg": "EI-DYN", "modeS": "4CA6A3", "model": "Boeing 737-800" }, "airline": { "name": "Ryanair" }
-                }, { "movement": { "airport": { "icao": "EPWA", "iata": "WAW", "name": "Warsaw" }, "scheduledTimeLocal": "2022-07-24 21:25+02:00", "actualTimeLocal": "2022-07-24 21:20+02:00", "runwayTimeLocal": "2022-07-24 21:20+02:00", "scheduledTimeUtc": "2022-07-24 19:25Z", "actualTimeUtc": "2022-07-24 19:20Z", "runwayTimeUtc": "2022-07-24 19:20Z", "quality": ["Basic", "Live"] }, "number": "LO 3860", "callSign": "LOT3860", "status": "Departed", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "reg": "SP-EQL", "modeS": "48932B", "model": "De Havilland Canada DHC-8-400 Dash 8Q" }, "airline": { "name": "LOT - Polish" } }, { "movement": { "airport": { "icao": "EPWA", "iata": "WAW", "name": "Warsaw" }, "scheduledTimeLocal": "2022-07-25 05:30+02:00", "scheduledTimeUtc": "2022-07-25 03:30Z", "quality": ["Basic"] }, "number": "LO 3850", "status": "Unknown", "codeshareStatus": "Unknown", "isCargo": false, "aircraft": { "model": "Embraer 170" }, "airline": { "name": "LOT - Polish" } }, { "movement": { "airport": { "icao": "EPWA", "iata": "WAW", "name": "Warsaw" }, "scheduledTimeLocal": "2022-07-25 08:45+02:00", "scheduledTimeUtc": "2022-07-25 06:45Z", "quality": ["Basic"] }, "number": "LO 3852", "status": "Unknown", "codeshareStatus": "Unknown", "isCargo": false, "aircraft": { "model": "Embraer 195" }, "airline": { "name": "LOT - Polish" } }, { "movement": { "airport": { "icao": "LIPH", "iata": "TSF", "name": "Treviso" }, "scheduledTimeLocal": "2022-07-25 07:30+02:00", "scheduledTimeUtc": "2022-07-25 05:30Z", "quality": ["Basic"] }, "number": "FR 1880", "status": "Unknown", "codeshareStatus": "Unknown", "isCargo": false, "aircraft": { "model": "Boeing 737-800" }, "airline": { "name": "Ryanair" } }]
+            "departures": [{ "movement": { "airport": { "icao": "LMML", "iata": "MLA", "name": "Luqa" }, "scheduledTimeLocal": "2022-07-24 22:14+02:00", "actualTimeLocal": "2022-07-24 22:14+02:00", "runwayTimeLocal": "2022-07-24 22:14+02:00", "scheduledTimeUtc": "2022-07-24 20:14Z", "actualTimeUtc": "2022-07-24 20:14Z", "runwayTimeUtc": "2022-07-24 20:14Z", "quality": ["Basic", "Live"] }, "number": "FR 181F", "callSign": "RYR181F", "status": "Departed", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "reg": "9H-QDD", "modeS": "4D225C", "model": "Boeing 737-800" }, "airline": { "name": "Ryanair" } }, { "movement": { "airport": { "icao": "EDDF", "iata": "FRA", "name": "Frankfurt-am-Main" }, "scheduledTimeLocal": "2022-07-25 06:40+02:00", "scheduledTimeUtc": "2022-07-25 04:40Z", "quality": ["Basic"] }, "number": "LH 1375", "status": "Unknown", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "reg": "D-ACNJ", "modeS": "3C4DCA", "model": "Bombardier CRJ900" }, "airline": { "name": "Lufthansa" } }, { "movement": { "airport": { "icao": "EINN", "iata": "SNN", "name": "Limerick city" }, "scheduledTimeLocal": "2022-07-25 07:15+02:00", "scheduledTimeUtc": "2022-07-25 05:15Z", "quality": ["Basic"] }, "number": "FR 1173", "status": "Unknown", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "model": "Boeing 737-800" }, "airline": { "name": "Ryanair" } }, { "movement": { "airport": { "icao": "ENTO", "iata": "TRF", "name": "Torp" }, "scheduledTimeLocal": "2022-07-25 06:10+02:00", "scheduledTimeUtc": "2022-07-25 04:10Z", "quality": ["Basic"] }, "number": "W6 1879", "status": "Unknown", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "model": "Airbus A320" }, "airline": { "name": "Wizz Air" } }, { "movement": { "airport": { "icao": "EPGD", "iata": "GDN", "name": "Gdańsk" }, "scheduledTimeLocal": "2022-07-24 20:40+02:00", "actualTimeLocal": "2022-07-24 22:22+02:00", "runwayTimeLocal": "2022-07-24 22:22+02:00", "scheduledTimeUtc": "2022-07-24 18:40Z", "actualTimeUtc": "2022-07-24 20:22Z", "runwayTimeUtc": "2022-07-24 20:22Z", "quality": ["Basic", "Live"] }, "number": "FR 4105", "callSign": "RYR69PH", "status": "Departed", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "reg": "EI-DYN", "modeS": "4CA6A3", "model": "Boeing 737-800" }, "airline": { "name": "Ryanair" } }, { "movement": { "airport": { "icao": "EPWA", "iata": "WAW", "name": "Warsaw" }, "scheduledTimeLocal": "2022-07-24 21:25+02:00", "actualTimeLocal": "2022-07-24 21:20+02:00", "runwayTimeLocal": "2022-07-24 21:20+02:00", "scheduledTimeUtc": "2022-07-24 19:25Z", "actualTimeUtc": "2022-07-24 19:20Z", "runwayTimeUtc": "2022-07-24 19:20Z", "quality": ["Basic", "Live"] }, "number": "LO 3860", "callSign": "LOT3860", "status": "Departed", "codeshareStatus": "IsOperator", "isCargo": false, "aircraft": { "reg": "SP-EQL", "modeS": "48932B", "model": "De Havilland Canada DHC-8-400 Dash 8Q" }, "airline": { "name": "LOT - Polish" } }, { "movement": { "airport": { "icao": "EPWA", "iata": "WAW", "name": "Warsaw" }, "scheduledTimeLocal": "2022-07-25 05:30+02:00", "scheduledTimeUtc": "2022-07-25 03:30Z", "quality": ["Basic"] }, "number": "LO 3850", "status": "Unknown", "codeshareStatus": "Unknown", "isCargo": false, "aircraft": { "model": "Embraer 170" }, "airline": { "name": "LOT - Polish" } }, { "movement": { "airport": { "icao": "EPWA", "iata": "WAW", "name": "Warsaw" }, "scheduledTimeLocal": "2022-07-25 08:45+02:00", "scheduledTimeUtc": "2022-07-25 06:45Z", "quality": ["Basic"] }, "number": "LO 3852", "status": "Unknown", "codeshareStatus": "Unknown", "isCargo": false, "aircraft": { "model": "Embraer 195" }, "airline": { "name": "LOT - Polish" } }, { "movement": { "airport": { "icao": "LIPH", "iata": "TSF", "name": "Treviso" }, "scheduledTimeLocal": "2022-07-25 07:30+02:00", "scheduledTimeUtc": "2022-07-25 05:30Z", "quality": ["Basic"] }, "number": "FR 1880", "status": "Unknown", "codeshareStatus": "Unknown", "isCargo": false, "aircraft": { "model": "Boeing 737-800" }, "airline": { "name": "Ryanair" } }]
         }
+        /*-----------------------------------------------*/
 
         //Sort flight by time of departure
         await data.departures.sort((a, b) => new Date(a.movement.scheduledTimeLocal).getTime() - new Date(b.movement.scheduledTimeLocal).getTime());
 
         await assignData(data)
         for (let i = 1; i <= Object.keys(flights).length && i <= ROWQUANTITY; i++) {
-            setTimeout(() => poopulateRow(i), INTERVALS.ROW_INTERVAL*i)
+            setTimeout(() => poopulateRow(i), INTERVALS.ROW_INTERVAL * i)
         }
     } catch (error) {
         console.log(error)

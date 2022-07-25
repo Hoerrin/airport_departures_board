@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     font-family: Helvetica, sans-serif
 }
 
-.main{
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
     width: 100vw;
 }
 
-.icon--container{
+.icon--container {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -23,50 +23,62 @@
     border: 4px solid #222;
     border-radius: 25%;
 }
-.icon{
+
+.icon {
     width: 3rem;
     height: 3rem;
 }
 
-.table{
+.table {
     color: #eee;
     border-collapse: collapse;
     border: 4px solid #111;
     background-color: #222;
 }
 
-.table__title{
+.table__title {
     height: 3rem;
 }
 
-.table__head{
+.table__head {
     background-color: #ffea00;
     color: #222;
 }
 
-.head__firstRow--container{
+.head__firstRow--container {
     text-align: left;
 }
 
-.firstRow__title{
+.firstRow__title {
     display: inline-block;
 }
 
-.head__secondRow{
+.head__secondRow {
     height: 2rem;
 }
 
-.column{
+.column {
     height: 2rem;
 }
 
 @keyframes flapRotation {
-    0%   {opacity: 0; background-color: #333;}
-    50%  {opacity: 0; background-color: #111;}
-    100%  {opacity: 1; background-color: #333;}
-  }
+    0% {
+        opacity: 0;
+        background-color: #333;
+    }
 
-.flap{
+    50% {
+        opacity: 0;
+        background-color: #111;
+    }
+
+    100% {
+        opacity: 1;
+        background-color: #333;
+    }
+}
+
+.flap {
     width: 1.1rem;
     min-width: 1.1rem;
     max-width: 1.1rem;
@@ -77,14 +89,14 @@
     background-color: #333
 }
 
-.flap--rotate{
+.flap--rotate {
     transform: rotateX(360deg);
     animation-name: flapRotation;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
-.flap--container{
+.flap--container {
     height: 100%;
     width: 100%;
     border: none;
