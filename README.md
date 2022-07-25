@@ -1,6 +1,6 @@
 # Airport Departure Board
 
-Simple JavaScript app made to improve my vanilla JS skills.
+Simple JavaScript app made to improve my vanilla JS and CSS skills.
 Idea came from YouTube video, but I've remade the app from ground up.
 
 App can use static data or fetch data from API.
@@ -10,7 +10,7 @@ Assign the key to const at the top of app.js file:
 ```bash
 const APIKEY
 ```
- and uncomment:
+and uncomment:
 ```bash
 let data = await getData()
 ```
@@ -21,6 +21,7 @@ By default reponse from API contains departure infromation from Wrocław (EPWR) 
 !WARNING!
 There's overage fees!
 !WARNING!
+
 ## Run
 
 Clone the project
